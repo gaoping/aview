@@ -83,13 +83,13 @@ var msgme = Message{
 
 func main() {
 
-	fmt.Printf("Check message: %+v", msgme)
+	fmt.Printf("\n\tCheck message: %+v\n", msgme)
 	cborData, err := msgme.Encode(true)
 	if err != nil {
 		fmt.Println("Error in encoding json")
 	}
-	fmt.Printf("\n\t CborData Size: %d: \n", binary.Size(cborData))
-	fmt.Printf("\n\t CborData in Hex: \t% X \n", cborData)
+	fmt.Printf("\n\tCborData Size: %d: \n", binary.Size(cborData))
+	fmt.Printf("\n\tCborData in Hex: \t% X \n", cborData)
 }
 
 // marshal json bytes to cbor bytes
@@ -113,18 +113,18 @@ func (message *Message) Encode(indexed bool) ([]byte, error) {
 	if indexed {
 		cborMap := message.reflect()
 		cborMap["id"] = "820e4b14-e857-4664-b6a0-9f119d58c3bb"
-		fmt.Printf("id is a string now: %s", "820e4b14-e857-4664-b6a0-9f119d58c3bb")
+		fmt.Printf("\n\tID: %s", "820e4b14-e857-4664-b6a0-9f119d58c3bb")
 		err := enc.Encode(cborMap)
 		if err != nil {
 
-			fmt.Printf("Error in encoding cbor due to: %+v", err)
+			fmt.Printf("Error in encoding cbor: %+v", err)
 			return nil, err
 		}
 	} else {
 		err := enc.Encode(message)
 		if err != nil {
 
-			fmt.Printf("Error in encoding cbor message due to: %+v", err)
+			fmt.Printf("Error in encoding cbor message: %+v", err)
 			return nil, err
 		}
 	}
