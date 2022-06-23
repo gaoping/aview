@@ -42,8 +42,7 @@ const (
 )
 
 const (
-	// indexing values of kind, action, status, and error, and expandable
-	// index to reduce size further
+	// indexing to reduce size further
 	error_map   = "out_of_memory,100,out_of_range,101"
 	kind_map    = "pg.element,1,pg.event,2,pg.event.diagnostic,3,pg.event.revoke,0"
 	action_map  = "activate,1,suspend,2,resume,3,deactivate,4"
@@ -67,12 +66,12 @@ type CborMessage struct {
 	CborData []byte
 }
 
-var idUUID, _ = gocql.ParseUUID("820e4b14-e857-4664-b6a0-9f119d58c3bb")
-var tidUUID, _ = gocql.ParseUUID("750fd9fe-e2ec-4f76-be68-693b3baef629")
+var idUuid, _ = gocql.ParseUUID("820e4b14-e857-4664-b6a0-9f119d58c3bb")
+var tidUuid, _ = gocql.ParseUUID("750fd9fe-e2ec-4f76-be68-693b3baef629")
 
 var msgme = Message{
-	Id:            idUUID,
-	TransactionId: tidUUID,
+	Id:            idUuid,
+	TransactionId: tidUuid,
 	Kind:          "gp.element",
 	Version:       "1.0",
 	Status:        "ok",
