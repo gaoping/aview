@@ -72,7 +72,7 @@ var tidUuid, _ = gocql.ParseUUID("750fd9fe-e2ec-4f76-be68-693b3baef629")
 var msgme = Message{
 	Id:            idUuid,
 	TransactionId: tidUuid,
-	Kind:          "gp.element",
+	Kind:          "pg.element",
 	Version:       "1.0",
 	Status:        "ok",
 	Error:         "out_of_memory",
